@@ -1355,7 +1355,7 @@ ggplot(UseMe, aes(x = ResidencyCat, y = Life_Satisfaction)) +
 by(UseMe$Life_Satisfaction, UseMe$Number_Children, shapiro.test)
 hist(UseMe$Life_Satisfaction ~ UseMe$Number_Children)
 bartlett.test(UseMe$Life_Satisfaction ~ UseMe$Number_Children) # equal variance
-childaov <- aov(UseMe$Life_Satisfaction ~ UseMe$Number_Children) # sig ? p = 0.0806
+childaov <- aov(UseMe$Life_Satisfaction ~ UseMe$Number_Children) 
 summary(childaov)
 plotmeans(UseMe$Life_Satisfaction ~ UseMe$Number_Children, mean.labels = TRUE, digits = 2, col = "red", ccol = "black", xlab = "Number of Children", ylab = "Life Satisfaction", main = c("Life Satisfaction vs Number of Children"))
 ?plotmeans
@@ -1416,8 +1416,8 @@ ggplot(UseMe, aes(x = Number_Children, y = Life_Satisfaction)) +
 #T.test for 0-3 kids or 4+kids CHILD RANGE
 UseMe %>% count(ChildRange)
 by(UseMe$Life_Satisfaction, UseMe$ChildRange, shapiro.test)
-t.test(UseMe$Life_Satisfaction ~ UseMe$ChildRange) # sig p < 2.2e-16
-wilcox.test(UseMe$Life_Satisfaction~ UseMe$ChildRange) # sig 2.2e-16
+t.test(UseMe$Life_Satisfaction ~ UseMe$ChildRange)
+wilcox.test(UseMe$Life_Satisfaction~ UseMe$ChildRange)
 plotmeans(UseMe$Life_Satisfaction ~ UseMe$ChildRange, mean.labels = TRUE, digits = 2, col = "red", ccol = "black", xlab = "Children Range", ylab = "Life Satisfaction", main = c("Life Satisfaction vs Children Range"))
 numkids <- UseMe %>% select(ChildRange, Life_Satisfaction)
 numkids %>%
