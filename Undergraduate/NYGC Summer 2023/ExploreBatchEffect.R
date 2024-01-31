@@ -78,7 +78,6 @@ meta <- Batch_Effect@meta.data
 p <- DoHeatmap(Batch_Effect, features = top10$gene)
 ggsave(filename = "heatmap.png", plot = p, width = 18, height = 16)
 
-
 ##### Start Annotation###
 ###### Cluster 0-done stuff####
 FeaturePlot(Batch_Effect, features = c(" "))
@@ -154,12 +153,9 @@ VlnPlot(Batch_Effect, c("PPBP", "PF4", "GP1BB", "ITGA2B", "TIMP3", "PLEK", "NAA3
 FeaturePlot(Batch_Effect, c("PPBP", "PF4", "GP1BB", "ITGA2B", "TIMP3", "PLEK", "NAA38", "CAVIN2"))
 
 
-
-
 # platelets?
 ####### Cluster 12 -done #####
 VlnPlot(Batch_Effect, c("HES4", "CR1", "CR2", "GPR183", "LILRA1"))
-
 
 # B cells
 ####### Cluster 13 -done #####
@@ -575,11 +571,8 @@ comp_Azi %>%
 # Create column to add to SeuratObject (Batch_Effect)
 Azimuth_Predicts <- Azimuth_Ref@meta.data$predicted.celltype.l2
 # Add the column and then plot the references on my own UMAP
-
 Batch_Effect$Azimuth_Predicts <- Azimuth_Predicts
-
 Azimuth_Score <- Azimuth_Ref@meta.data$predicted.celltype.l2.score
-
 Batch_Effect$Azimuth_Score <- Azimuth_Score
 ###### Experimenting#####
 
